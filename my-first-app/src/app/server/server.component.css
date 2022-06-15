@@ -1,0 +1,14 @@
+.margin-y {
+    margin: 1rem 0rem;
+}
+
+.available {
+    background-color: lightblue;
+    padding: 4px;
+    border-radius: 4px;
+    color: royalblue;
+}
+
+.available p {
+    margin-bottom: 0 !important;
+}

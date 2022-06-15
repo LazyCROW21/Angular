@@ -1,0 +1,17 @@
+<h1>
+    Server name: {{ serverName }}, ID: {{ serverId }} is 
+    <span [ngStyle]="{ backgroundColor: getServerStatusBG(), color: 'white', padding: '4px' }">{{ serverStatus }}</span></h1>
+<div class="margin-y">
+    <input class="form-control" type="text" [(ngModel)]="serverName">
+</div>
+<button class="btn btn-primary margin-y" [disabled]="!serverName" (click)="addServer()">Add Server</button>
+<div [ngClass]="{ available: !allowNewServer }">
+    <p *ngIf="!allowNewServer; else noServer" else no-server>Now you can add new server!</p>
+    <ng-template #noServer>
+        <p>You cannot create server right now!</p>
+    </ng-template>
+</div>
+<hr/>
+<h4>Server List:</h4>
+<p *ngFor="let server of serverList">{{ server }}</p>
+<hr/>

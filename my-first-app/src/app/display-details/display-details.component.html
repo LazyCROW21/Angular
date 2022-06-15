@@ -1,0 +1,19 @@
+<hr>
+<button 
+    class="btn" [ngClass]="show ? 'btn-success': 'btn-danger'" 
+    (click)="toggleShow()"
+>
+    <span *ngIf="show; else notShow">HIDE DETAILS</span>
+    <ng-template #notShow>
+        <span>SHOW DETAILS</span>
+    </ng-template>
+</button>
+<p *ngIf="show">display-details works!</p>
+<h5>Logs:</h5>
+<p 
+    *ngFor="let log of logs; let i = index;" 
+    [ngStyle]="{ backgroundColor: i < 4 ? '' : 'blue' }"
+    [ngClass]="i < 4 ? '' : 'text-white'"
+>
+    {{ i + 1 }}. {{ log }}</p>
+<hr>
