@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-9">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="nameinp" placeholder="Ingredient">
+            <label for="nameinp">Name</label>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-floating mb-3">
+            <input type="number" step="1" class="form-control" id="amountinp" placeholder="1">
+            <label for="amountinp">Amount</label>
+        </div>
+    </div>
+    <div class="col">
+        <button class="btn btn-success" (click)="added()">Add</button>
+        <button class="btn btn-danger mx-3">Remove</button>
+        <button class="btn btn-primary">Clear</button>
+    </div>
+</div>

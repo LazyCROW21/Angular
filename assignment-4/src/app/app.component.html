@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <h3>Assignment 4</h3>
+  <app-game-control (gameTick)="onGameTick($event)"></app-game-control>
+  <div class="row">
+    <div class="col mt-2">
+      <app-even-catch #evenComponent></app-even-catch>
+    </div>
+    <div class="col mt-2">
+      <app-odd-catch #oddComponent></app-odd-catch>
+    </div>
+  </div>
+</div>
