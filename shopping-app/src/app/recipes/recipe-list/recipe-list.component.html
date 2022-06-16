@@ -5,7 +5,11 @@
 </div>
 <hr/>
 <div class="row">
-    <div class="col" *ngFor="let recipe of recipes">
-        {{ recipe.name }}
-    </div>
+    <app-recipe-item 
+        class="col-12" 
+        *ngFor="let recipeEl of recipes" 
+        [recipe]="recipeEl"
+        (recipeClick)="onRecipeSelect(recipeEl)"
+    >
+    </app-recipe-item>
 </div>

@@ -9,8 +9,10 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { ExampleComponent } from './example/example.component';
-import { DummyComponent } from './dummy/dummy.component';
+import { DropdownDirective } from './shared/dropdown.directive';
+
+// "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+
 
 @NgModule({
   declarations: [
@@ -22,8 +24,7 @@ import { DummyComponent } from './dummy/dummy.component';
     RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    ExampleComponent,
-    DummyComponent
+    DropdownDirective
   ],
   imports: [
     BrowserModule

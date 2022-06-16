@@ -1,13 +1,14 @@
-import { AfterContentInit, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterContentInit {
-  ngAfterContentInit(): void {
-    console.log('Content Init');
+export class AppComponent {
+  url = 'recipe';
+
+  changeRoute(event: string) {
+    this.url = event;
   }
-  title = 'shopping-app';
 }

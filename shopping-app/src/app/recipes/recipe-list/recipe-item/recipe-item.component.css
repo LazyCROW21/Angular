@@ -1,0 +1,8 @@
+.recipe-item {
+    cursor: pointer;
+}
+
+.recipe-img {
+    width: 100%;
+    max-width: 128px;
+}
