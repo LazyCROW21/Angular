@@ -1,21 +1,31 @@
 <div class="p-4">
-    <img [src]="recipe.imagePath" class="img-fluid border rounded-circle" alt="recipe image">
-    <h1 class="text-center">{{ recipe.name }}</h1>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-            data-bs-toggle="dropdown" aria-expanded="false" appDropdown>
-            Manage Recipe
-        </button>
-        <ul class="dropdown-menu tgl" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Add to shopping list</a></li>
-            <li><a class="dropdown-item" href="#">Edit recipe</a></li>
-            <li><a class="dropdown-item" href="#">Delete recipe</a></li>
-        </ul>
-    </div>
-    <div>
-        {{ recipe.description }}
-    </div>
-    <div>
-        Ingredients
-    </div>
+  <img [src]="recipe.imagePath" class="img-fluid border rounded-circle" alt="recipe image">
+  <h1 class="text-center">{{ recipe.name }}</h1>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      aria-expanded="false" appDropdown>
+      Manage Recipe
+    </button>
+    <ul class="dropdown-menu tgl" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" (click)="addToSL()">Add to shopping list</a></li>
+      <li><a class="dropdown-item">Edit recipe</a></li>
+      <li><a class="dropdown-item">Delete recipe</a></li>
+    </ul>
+  </div>
+  <div>
+    {{ recipe.description }}
+  </div>
+  <hr>
+  <div>
+    <h4 class="text-center">Ingredients</h4>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-start"
+        *ngFor="let ingredient of recipe.ingredients">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">{{ ingredient.name }}</div>
+        </div>
+        <span class="badge bg-primary rounded-pill">{{ ingredient.amount }}</span>
+      </li>
+    </ul>
+  </div>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ingredient } from 'src/app/shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -7,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingEditComponent implements OnInit {
 
-  constructor() { }
+  ingName: string;
+  ingAmount: number;
 
-  added() {
-    console.log('Added');
+  constructor(private shoppingListService: ShoppingListService) { }
+
+  addToList() {
+    this.shoppingListService.addIngredient(new Ingredient(this.ingName, this.ingAmount));
   }
 
   ngOnInit(): void {

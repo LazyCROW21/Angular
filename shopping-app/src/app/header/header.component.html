@@ -8,11 +8,11 @@
     <div class="collapse navbar-collapse tgl" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link {{ url === 'recipe' ? 'active' : '' }}" aria-current="page" href="#"
-            (click)="setUrl('recipe')">Recipe</a>
+          <a class="nav-link" routerLinkActive="active" aria-current="page" href="#"
+            routerLink="/recipes">Recipe</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ url === 'recipe' ? 'active' : '' }}" href="#" (click)="setUrl('shoppinglist')">Shopping
+          <a class="nav-link" routerLinkActive="active" href="#" routerLink="/shopping-list">Shopping
             List</a>
         </li>
       </ul>
