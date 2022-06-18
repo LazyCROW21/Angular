@@ -1,1 +1,59 @@
-<p>recipe-edit works!</p>
+<form class="my-2" [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label class="title">Title</label>
+        <input formControlName="name" type="text" id="title" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="imgUrl">Image Path</label>
+        <input formControlName="imagePath" type="url" id="imgUrl" class="form-control">
+    </div>
+    <div class="mb-3">
+        <p class="">Image Preview</p>
+        <img [src]="recipeForm.get('imagePath').value" class="img-fluid" alt="Image not found">
+    </div>
+    <div class="mb-3">
+        <label for="desc">Description</label>
+        <textarea formControlName="description" type="text" id="desc" class="form-control" rows="4"></textarea>
+    </div>
+    <div formArrayName="ingredients">
+        <div 
+            class="row mb-2" 
+            *ngFor="let ignControl of getIngredientsArray().controls; let i = index"
+            [formGroupName]="i"
+        >
+            <div class="col-6">
+                <input 
+                    formControlName="name" 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="name"
+                    required
+                >
+            </div>
+            <div class="col-4">
+                <input 
+                    formControlName="amount" 
+                    type="number" 
+                    step="1"
+                    min="1"
+                    class="form-control" 
+                    placeholder="amount" 
+                    required
+                >
+            </div>
+            <div class="col-2">
+                <button class="btn btn-close w-100" type="button" (click)="popIngredient(i)"></button>
+            </div>
+        </div>
+        <button class="btn btn-success" (click)="addIngredient()" type="button">Add Ingredient</button>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-success w-100" [disabled]="!recipeForm.valid">Save</button>
+        </div>
+        <div class="col-6">
+            <button class="btn btn-warning w-100" type="button" routerLink="../">Cancel</button>
+        </div>
+    </div>
+</form>

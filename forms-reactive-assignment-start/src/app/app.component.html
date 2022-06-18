@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="p-name">Project Name: </label>
+          <input formControlName="projectName" type="text" class="form-control" id="p-name">
+          <div
+            *ngIf="projectForm.get('projectName').touched && !projectForm.get('projectName').valid"
+          >
+            <small 
+              class="text-danger"
+              *ngIf="projectForm.get('projectName').errors.required"
+            >
+              Project name is required
+            </small>
+            <small 
+              class="text-danger"
+              *ngIf="projectForm.get('projectName').errors.forbiddenName"
+            >
+              Project Name cannot be 'test'!
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="p-email">Email: </label>
+          <input formControlName="projectEmail" type="email" class="form-control" id="p-email">
+        </div>
+        <div class="form-group">
+          <label for="p-status">Project Status: </label>
+          <select formControlName="projectStatus" class="form-control" id="p-status">
+            <option *ngFor="let option of statusOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
+        <button class="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

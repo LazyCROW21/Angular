@@ -3,7 +3,11 @@
         <app-shopping-edit></app-shopping-edit>
         <hr>
         <ol class="list-group list-group-numbered">
-            <li *ngFor="let ingredient of ingredients" class="list-group-item d-flex justify-content-between align-items-start">
+            <li
+                *ngFor="let ingredient of ingredients; let id = index" 
+                class="list-group-item d-flex justify-content-between align-items-start"
+                (click)="onEditItem(id)"
+            >
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">{{ ingredient.name }}</div>
                 </div>

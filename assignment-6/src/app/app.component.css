@@ -1,0 +1,23 @@
+.error-text {
+    color: red;
+    display: none;
+}
+
+.form-control.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+
+.form-control.ng-invalid.ng-touched+.error-text{
+    display: block;
+}
+
+.form-control.ng-valid.ng-touched {
+    border: 2px solid green;
+}
+
+.form-select.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+.form-select.ng-valid.ng-touched {
+    border: 2px solid green;
+}
