@@ -7,8 +7,16 @@
       Manage Recipe
     </button>
     <ul class="dropdown-menu tgl" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" (click)="addToSL()">Add to shopping list</a></li>
-      <li><a class="dropdown-item">Edit recipe</a></li>
+      <li>
+        <a class="dropdown-item" (click)="addToSL()">
+          Add to shopping list
+        </a>
+      </li>
+      <li>
+        <a class="dropdown-item" routerLink="edit">
+          Edit recipe
+        </a>
+      </li>
       <li><a class="dropdown-item">Delete recipe</a></li>
     </ul>
   </div>
