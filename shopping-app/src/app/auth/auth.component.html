@@ -1,0 +1,28 @@
+<div class="form-wrapper my-4 mx-auto">
+  <h1>{{ isLoginMode ? 'Login' : 'Sign Up' }}</h1>
+  <hr />
+  <div class="text-center py-4 my-4" *ngIf="isLoading">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="errorMsg">
+    {{ errorMsg }}
+  </div>
+  <form *ngIf="!isLoading" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+    <div class="mb-3">
+      <label for="email-inp">E-Mail</label>
+      <input id="email-inp" type="email" class="form-control" ngModel name="email" required email />
+    </div>
+    <div class="mb-3">
+      <label for="pwd-inp">Password</label>
+      <input id="pwd-inp" type="password" class="form-control" ngModel name="password" required minlength="6"/>
+    </div>
+    <div class="row m-0">
+      <div class="col-6 ps-0">
+        <button class="col-6 btn btn-primary w-100" type="submit" [disabled]="!authForm.valid">{{ isLoginMode ? 'Login' : 'Sign Up' }}</button>
+      </div>
+      <div class="col-6 pe-0">
+        <button class="col-6 btn btn-info w-100" type="button" (click)="onSwitchMode()">Switch To {{ !isLoginMode ? 'Login' : 'Sign Up' }}</button>
+      </div>
+    </div>
+  </form>
+</div>

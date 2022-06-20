@@ -6,25 +6,30 @@ export class RecipeService {
     recipesChanged = new Subject<Recipe[]>();
     
     private recipes: Recipe[] = [
-        new Recipe(
-            'Cake', 
-            'Sweet Yummy', 
-            'https://babecook.com/wp-content/uploads/2021/07/recipe-appetizing-hershey-chocolate-cake.jpg',
-            [
-                new Ingredient('Apple', 2),
-                new Ingredient('Banana', 1)
-            ]
-        ),
-        new Recipe(
-            'Noodles', 
-            'Tasty Spicy', 
-            'https://img-global.cpcdn.com/recipes/ed0156da09a3349f/400x400cq70/photo.jpg',
-            [
-                new Ingredient('Wheat', 2),
-                new Ingredient('Spice', 7)
-            ]
-        )
+        // new Recipe(
+        //     'Cake', 
+        //     'Sweet Yummy', 
+        //     'https://babecook.com/wp-content/uploads/2021/07/recipe-appetizing-hershey-chocolate-cake.jpg',
+        //     [
+        //         new Ingredient('Apple', 2),
+        //         new Ingredient('Banana', 1)
+        //     ]
+        // ),
+        // new Recipe(
+        //     'Noodles', 
+        //     'Tasty Spicy', 
+        //     'https://img-global.cpcdn.com/recipes/ed0156da09a3349f/400x400cq70/photo.jpg',
+        //     [
+        //         new Ingredient('Wheat', 2),
+        //         new Ingredient('Spice', 7)
+        //     ]
+        // )
     ];
+
+    setRecipe(recipes: Recipe[]) {
+        this.recipes = recipes;
+        this.recipesChanged.next(this.recipes.slice());
+    }
 
     getRecipe(id: number) {
         return this.recipes[id];
