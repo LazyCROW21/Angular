@@ -15,6 +15,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import * as fromApp from './store/app.reducer'
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/store/auth.effects';
 
 // "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
 
@@ -34,7 +36,8 @@ import * as fromApp from './store/app.reducer'
     AppRoutingModule,
     ReactiveFormsModule,
     StoreModule.forRoot(fromApp.appReducer),
-    ShoppingListModule
+    ShoppingListModule,
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [
     ShoppingListService, 
