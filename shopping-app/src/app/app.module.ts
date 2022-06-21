@@ -14,7 +14,7 @@ import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
-import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
+import * as fromApp from './store/app.reducer'
 
 // "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
 
@@ -33,9 +33,7 @@ import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ 
-      shoppingList: shoppingListReducer
-    }),
+    StoreModule.forRoot(fromApp.appReducer),
     ShoppingListModule
   ],
   providers: [

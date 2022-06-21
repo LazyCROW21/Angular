@@ -1,17 +1,13 @@
 import { Ingredient } from "../../shared/ingredient.model";
 import * as SLActions from './shopping-list.actions';
 
-export interface SLState {
+export interface State {
     editedIngredient: Ingredient,
     editedIngredientIndex: number,
     ingredients: Ingredient[]
 }
 
-export interface AppState {
-    shoppingList: SLState
-}
-
-const initialState: SLState = {
+const initialState: State = {
     editedIngredient: null,
     editedIngredientIndex: -1,
     ingredients: [
@@ -21,7 +17,7 @@ const initialState: SLState = {
 };
 
 export function shoppingListReducer(
-    state: SLState = initialState, 
+    state: State = initialState, 
     action: SLActions.ShoppingListActions
     ) {
     switch (action.type) {
@@ -32,7 +28,7 @@ export function shoppingListReducer(
         case SLActions.UPDATE_INGREDIENT:
             const updatedIngredient = {
                 ...state.ingredients[state.editedIngredientIndex],
-                ...state.editedIngredient
+                ...action.payload
             };
             const updatedIngredients = [...state.ingredients ];
             updatedIngredients[state.editedIngredientIndex] = updatedIngredient;
@@ -53,9 +49,7 @@ export function shoppingListReducer(
             return {
                 ...state,
                 editedIngredientIndex: action.payload,
-                editedIngredient: {
-                    ...state.ingredients[action.payload]
-                }
+                editedIngredient: { ...state.ingredients[action.payload] }
             };
         case SLActions.STOP_EDIT:
             return {

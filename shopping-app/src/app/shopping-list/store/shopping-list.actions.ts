@@ -20,8 +20,7 @@ export class AddIngredients implements Action {
 
 export class UpdateIngredient implements Action {
     readonly type: string = UPDATE_INGREDIENT;
-    public payload: any;
-    constructor() {}
+    constructor(public payload: Ingredient) {}
 }
 
 export class DeleteIngredient implements Action {
