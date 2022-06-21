@@ -1,5 +1,4 @@
 import { Subject } from 'rxjs';
-import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from './recipe.model';
 
 export class RecipeService {
