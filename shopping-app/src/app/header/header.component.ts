@@ -15,22 +15,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
     authSub: Subscription;
     isAuthenticated = false;
 
-    constructor (
-        private dataStorageService: DataStorageService, 
+    constructor(
+        private dataStorageService: DataStorageService,
         private authService: AuthService,
-        private store: Store<fromApp.AppState>
-    ) {}
+        private store: Store<fromApp.AppState>,
+    ) { }
 
     ngOnInit(): void {
         this.authSub = this.store.select('auth')
-        .pipe(
-            map(authState => {
-                return authState.user;
-            })
-        )
-        .subscribe((user) => {
-            this.isAuthenticated = !!user;
-        });
+            .pipe(
+                map(authState => {
+                    return authState.user;
+                })
+            )
+            .subscribe((user) => {
+                this.isAuthenticated = !!user;
+            });
     }
 
     onLogout() {

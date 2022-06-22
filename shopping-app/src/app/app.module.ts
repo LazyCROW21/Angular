@@ -30,7 +30,7 @@ import { AuthEffects } from './auth/store/auth.effects';
     LoadingSpinnerComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
